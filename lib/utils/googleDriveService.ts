@@ -1,6 +1,5 @@
 import fs from 'fs';
 import { Readable } from 'stream';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { google } = require('googleapis');
 
 /**
