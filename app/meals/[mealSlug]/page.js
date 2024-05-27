@@ -5,8 +5,7 @@ import { getMeal } from '@/lib/meals';
 import classes from './page.module.css';
 
 export async function generateMetadata({ params }) {
-  const meal = getMeal(params.mealSlug);
-
+  const meal = await getMeal(params.mealSlug);
   if (!meal) {
     notFound();
   }
@@ -17,9 +16,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function MealDetailsPage({ params }) {
-  const meal = getMeal(params.mealSlug);
-
+export default async function MealDetailsPage({ params }) {
+  const meal = await getMeal(params.mealSlug);
+  
   if (!meal) {
     notFound();
   }
@@ -31,7 +30,7 @@ export default function MealDetailsPage({ params }) {
       <header className={classes.header}>
         <div className={classes.image}>
           <Image
-            src={`https://maxschwarzmueller-nextjs-demo-users-image.s3.amazonaws.com/${meal.image}`}
+            src={meal.imageurl}
             alt={meal.title}
             fill
           />

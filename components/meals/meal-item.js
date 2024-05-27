@@ -3,13 +3,13 @@ import Image from 'next/image';
 
 import classes from './meal-item.module.css';
 
-export default function MealItem({ title, slug, image, summary, creator }) {
+export default function MealItem({ title, slug, image, imageurl, summary, creator }) {
   return (
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
           <Image
-            src={`https://drive.google.com/uc?export=view&id=${image}`}
+            src={imageurl}
             alt={title}
             fill
           />

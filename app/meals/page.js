@@ -12,8 +12,8 @@ export const metadata = {
 
 async function Meals() {
   console.log('Fetching meals');
-  // const meals = await getMeals();
-
+  const meals = await getMeals();
+  // console.log(meals)
   return <MealsGrid meals={meals} />;
 }
 
@@ -34,7 +34,7 @@ export default function MealsPage() {
       </header>
       <main className={classes.main}>
         <Suspense fallback={<p className={classes.loading}>Fetching meals...</p>}>
-          {/* <Meals /> */}
+          <Meals />
         </Suspense>
       </main>
     </>
